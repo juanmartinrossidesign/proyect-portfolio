@@ -48,12 +48,8 @@ nav ul {
   align-items: center;
 }
 
-nav a {
+nav ul a {
   text-decoration: none;
-  color: #2f5bea;
-  border: 1px solid #ddd;
-  padding: 8px 12px;
-  border-radius: 100px;
   display: inline-block;
 }
 
@@ -77,10 +73,11 @@ footer {
 
 /* ========== About (foto) ========== */
 .profile-photo {
-  width: 230px;
+  width: 200px;
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: 32px;
 }
 
 /* ========== Home: Hero ========== */
@@ -99,20 +96,28 @@ footer {
 
 .hero-media img {
   width: 100%;
-  max-width: 480px; /* probá 400–520px */
-  margin: 0 auto;   /* centra la imagen */
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 /* ========== Home: Projects ========== */
 .projects {
+  display: block;
+}
+
+.projects h2 {
+  margin-bottom: 24px;
+}
+
+.projects-grid {
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: start;
 }
 
 @media (min-width: 768px) {
-  .projects {
+  .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -120,8 +125,8 @@ footer {
 .project-card img {
   width: 100%;
   max-width: 100%;
-  height: 180px;      /* altura fija tipo card */
-  object-fit: cover;  /* recorta sin deformar */
+  height: 180px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -156,6 +161,13 @@ footer {
 .discover {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .discover {
+    grid-template-columns: 1fr;
+  }
 }
 
 .services {
@@ -199,7 +211,6 @@ footer {
   font: inherit;
 }
 
-
 /* Reason */
 .contact .reason {
   display: flex;
@@ -221,13 +232,6 @@ footer {
   cursor: pointer;
 }
 
-.contact .reason-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
 /* Button */
 .contact button {
   width: 100%;
@@ -240,54 +244,47 @@ footer {
   cursor: pointer;
 }
 
-/* NAV: estados */
-nav a:hover{
-  background-color: #2f5bea;
-  color: white;
-} 
-
-nav a:focus-visible{
-  outline: 3px solid #2f5bea;
-  outline-offset: 3px;
-}
-
-nav a:active{
-  background-color: #1f43b9;
-}
-
-/* BOTÓN: estados */
-
-/* NAV LINKS */
-.navbar .nav-link{
+/* ========== Navbar Bootstrap overrides ========== */
+.navbar-expand-md .navbar-nav .nav-link {
   color: #222;
-  border-radius: 999px;
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 10px 18px;
 }
 
-/* HOVER  */
-.navbar .nav-link:hover{
+.navbar .nav-link:hover {
   background: #2f5bea;
   color: #fff;
 }
 
-/* ACTIVE */
-.navbar .nav-link.active{
+.navbar .nav-link.active {
   background: #1f3fbf;
   color: #fff;
   font-weight: 600;
 }
 
-/* CLICK MOMENTÁNEO*/
-.navbar .nav-link:active{
+.navbar .nav-link:active {
   transform: scale(0.98);
 }
 
-/* BRAND */
-
-.navbar .navbar-brand{
+.navbar .navbar-brand {
   color: #222;
   font-weight: 700;
+  text-decoration: none;
 }
-.navbar .navbar-brand:hover{
-  color: #fff;
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #2f5bea;
+}
+
+@media (max-width: 767px) {
+  .about-intro,
+  .skills-tools {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .want-to-work {
+    flex-direction: column;
+  }
 }
